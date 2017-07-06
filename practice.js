@@ -23,7 +23,7 @@ const knex = require('knex')({
 // 	.from('restaurants')
 // 	.then(results => console.log(results));
 
-//2. Get all Italian restaurants 
+//2. Get all Italian restaurants to
 
 // knex.select()
 // 	.from('restaurants')

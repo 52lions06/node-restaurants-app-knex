@@ -1,6 +1,6 @@
 
 
-// const DATABASE_URL = process.env.DATABASE_URL || global.DATABASE_URL || 'postgresql://dev:dev@localhost/todos-app';
+const DATABASE_URL = process.env.DATABASE_URL || global.DATABASE_URL || 'postgresql://dev:dev@localhost/dev-restaurants-app';
 
 // postgres://USERNAME:PASSWORD@stampy.db.elephantsql.com:5432/DATABASE
 
