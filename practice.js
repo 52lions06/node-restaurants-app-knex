@@ -16,6 +16,22 @@ const knex = require('knex')({
 
 
 //1. Get all restaurants
-knex.select()
+
+// knex.select()
+// 	.from('restaurants')
+// 	.then(results => console.log(results));
+
+//2. Get all Italian restaurants 
+
+// knex.select()
+// 	.from('restaurants')
+//     .where('cuisine', 'Italian')
+// 	.then(results => console.log(results));
+
+//3. Get 10 Italian restaurants, name and id
+
+knex.select('name', 'id')
 	.from('restaurants')
+    .where('cuisine', 'Italian')
+    .limit(10)
 	.then(results => console.log(results));
