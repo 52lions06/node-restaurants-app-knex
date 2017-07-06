@@ -1,6 +1,13 @@
-const knex = require('knex')(DEV);
-const { DATABASE, PORT } = require('./config');
-const knex = require('knex')(DATABASE);
+// const knex = require('knex')(DEV);
+// const { DATABASE, PORT } = require('./config');
+// const knex = require('knex')(DATABASE);
+
+const knex = require('knex')({
+    client: 'pg',
+    connection: {
+        database: 'dev-restaurants-app'
+    },
+});
 
 // clear the console before each run
 process.stdout.write('\033c');
@@ -164,23 +171,27 @@ knex
 //   .then(res => console.log(res));
 
 // HYDRATE drill
-const hydrated = {};
-restaurants.forEach(row => {
-  if (!(row.id in hydrated)) {
-    hydrated[row.id] = {
-      name: row.name,
-      cuisine: row.cuisine,
-      borough: row.borough,
-      grades: []
-    }
-  }
-  hydrated[row.id].grades.push({
-    gradeId: row.gradeId,
-    grade: row.grade,
-    score: row.score
-  });
-});
-console.log(JSON.stringify(hydrated, null, 2))
 
-// Destroy the connection pool
-knex.destroy().then(() => { console.log('closed') })
+
+
+
+// const hydrated = {};
+// restaurants.forEach(row => {
+//   if (!(row.id in hydrated)) {
+//     hydrated[row.id] = {
+//       name: row.name,
+//       cuisine: row.cuisine,
+//       borough: row.borough,
+//       grades: []
+//     }
+//   }
+//   hydrated[row.id].grades.push({
+//     gradeId: row.gradeId,
+//     grade: row.grade,
+//     score: row.score
+//   });
+// });
+// console.log(JSON.stringify(hydrated, null, 2))
+
+// // Destroy the connection pool
+// knex.destroy().then(() => { console.log('closed') })
